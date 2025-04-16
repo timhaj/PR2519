@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("./podatki/parking_data.csv")
+df = pd.read_csv("../podatki/parking_data.csv")
 df = df[(df["Prosto"] != "/") & (~df["Prosto"].isna()) & (df["Location"] != "Slovenčeva ulica")]
 
 base_date = pd.to_datetime("1970-01-01")
@@ -31,8 +31,11 @@ for day in pd.date_range(start="2025-03-18", end="2025-04-10"):
 combined = pd.concat(all_days_data)
 avg_data = combined.groupby("Time").mean().reset_index()
 avg_data["Smoothed"] = avg_data["Normalized"].rolling(window=10, min_periods=1).mean()
+mask = avg_data['Smoothed'] < 0
+avg_data.loc[mask, 'Smoothed'] = 0
+
 plt.plot(avg_data["Time"], avg_data["Smoothed"], color="black", linewidth=3, label="Povprečje")
-plt.ylim(-50, 105)
+plt.ylim(30, 105)
 tick_locs = pd.date_range(start=base_date, periods=25, freq="1H")
 tick_labels = tick_locs.strftime('%H:%M')
 plt.xticks(ticks=tick_locs, labels=tick_labels)

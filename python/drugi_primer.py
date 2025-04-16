@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-df = pd.read_csv("./podatki/parking_data.csv")
+df = pd.read_csv("../podatki/parking_data.csv")
 df = df[(df["Prosto"] != "/") & (~df["Prosto"].isna()) & (df["Location"] != "Slovenčeva ulica")]
 
 # Ensure datetime and int types are set

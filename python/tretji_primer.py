@@ -40,7 +40,7 @@ cene = {
 "Linhartova" : 1.00,
 }
 
-df = pd.read_csv("./podatki/parking_data.csv")
+df = pd.read_csv("../podatki/parking_data.csv")
 df = df[(df["Prosto"] != "/") & (~df["Prosto"].isna())]
 df["Prosto"] = pd.to_numeric(df["Prosto"])
 df["Na voljo"] = pd.to_numeric(df["Na voljo"])
