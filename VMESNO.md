@@ -1,4 +1,4 @@
-## STATISTIKA PARKIRIŠČ MESTNE OBČINE LJUBLJANA
+## Statistika parkirišč mestne občine Ljubljana
 
 ### Uvod 
 V tem projektu nas je zanimalo, kakšna je zasedenost parkirišč v Mestni občini Ljubljana (MOL), saj smo želeli na podlagi podatkov ugotoviti, kdaj imamo največ možnosti za uspešno iskanje parkirnega mesta.
@@ -17,8 +17,12 @@ Zajeti podatki vključujejo:
 - skupno število mest,
 - datum in čas zajema.
 
+Poleg tega smo imeli na voljo še pdf datoteko Cenik, v katerem so shranjeni podatki o tarifah za posamezno parkirišče.
 Za zajem podatkov smo uporabili knjižnico BeautifulSoup.
 Do pisanja tega vmesnega poročila smo uspeli zbrati že precej podatkov. Zajem smo začeli 18. 3. 2025, podatki pa segajo do 10. 4. 2025.
+
+Preden smo začeli podatke uporabljati smo ugotovili da jih za nekaj parkirišč na spletni strani ni zapisano mesto prostih in na voljo, ampak je namesto tega pisalo le "/". Tudi o nekaterih drugih parkiriščih je spletna stran pisala le status zasedenosti brez številskih podatkov, zato smo vrstice za ta parkirišča odstranili.
+Poleg tega smo med potekom naloge ugotovili da so ob nekatrih časih zapisane nelogične vrednosti - število prostih mest je bilo večje od števila vseh parkirnih mest. To smo popravili tako, da smo število prostih mest zgoraj omejili z številom parkirišč.
 
 ### Ugotovitve:
 
@@ -35,14 +39,15 @@ Opazimo tudi, da so nekatere krivulje bistveno pod povprečjem – ob primerjavi
 opažamo lokalne vrhove zasedenosti okoli 12. do 13. ure ter ponovno okoli 20. ure – to je čas, ko obiskovalci prihajajo na dogodke.
 
 #### Gospodarsko rastavišče
-Spodaj je prikazana zasedenost parkirišča pri Gospodarskem razstavišču v obdobju od 18. 3. 2025 do 10. 4. 2025. Vsaka barvna krivulja predstavlja en dan, črna pa povprečje.
+Spodaj je prikazana zasedenost parkirišča pri Gospodarskem razstavišču v obdobju od 18. 3. 2025 do 10. 4. 2025. Vsaka barvna krivulja predstavlja en dan, odebeljena črna krivulja pa povprečje.
 
 <img src="slike/primer2.png"/>
 
-Na grafu je razvidno, da do 7. ure zjutraj ni veliko podatkov. Po preverjanju na strani [Gospodarsko rastavišče](https://www.lpt.si/parkirisca/lokacije-in-opis-parkirisc/parkirisca-za-osebna-vozila/gospodarsko-razstavisce) 
+Na grafu je razvidno, da do 7. ure zjutraj ni nobenega zabeleženega parkiranega avtomobila. Po preverjanju na strani [Gospodarsko rastavišče](https://www.lpt.si/parkirisca/lokacije-in-opis-parkirisc/parkirisca-za-osebna-vozila/gospodarsko-razstavisce) 
 smo ugotovili, da se parkirišče odpre šele po sedmi uri, kar potrjuje ujemanje z našimi podatki.
 Kar se sklada z našimi podatki.
-Tudi tukaj je razlika med delovniki in vikendi očitna. Glede na to, da so bili podatki zajeti v času maturantskih plesov, je možno, da večerna povečana zasedenost (po 18:30) sovpada s temi dogodki.
+Tudi tukaj je razlika med delovniki in vikendi očitna. 
+Poleg tega proti večeru vidimo marsikater primer, kjer se pojavi nenaden vzpon zasedenosti parkirišča. Glede na to, da so bili podatki zajeti v času maturantskih plesov, je možno, da večerna povečana zasedenost (po 18:30) sovpada s temi dogodki.
 
 #### Skupno število prostih parkirnih mest skozi čas
 Spodnji graf prikazuje skupno število prostih mest skozi vse dni beleženja. Modro ozadje označuje vikende.
@@ -68,8 +73,9 @@ Na grafu je prikazana povprečna zasedenost po dnevih v tednu za celotno zajeto 
 
 <img src="slike/primer5.png"/>
 
-Kot pričakovano so vikendi – še posebej nedelje – najmanj zasedeni dnevi v tednu.
-
+Kot pričakovano so vikendi – še posebej nedelje – najmanj zasedeni dnevi v tednu. Parkirišča pa so najbolj polna ob četrtkih
+Pri teh podatkih pa bodimo pozorni, da je to celodnevno povprečje.
+Stopnja zasedenosti  bi bila precej višja če bi upoštevali le časovni interval od 7:00-19:00 ko so parkirišča najbolj polna, kar lahko vidimo že iz iz 1. in 2. slike, ki predstavljata zasedenost parkirišč skozi čas.
 
 
 
