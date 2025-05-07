@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 
-df = pd.read_csv("./podatki/parking_data.csv")
-df2 = pd.read_csv("./podatki/parking_data2.csv")
+df = pd.read_csv("../podatki/parking_data.csv")
+df2 = pd.read_csv("../podatki/parking_data2.csv")
 df = pd.concat([df, df2])
 df = df[(df["Prosto"] != "/") & (~df["Prosto"].isna()) & (df["Location"] != "Slovenčeva ulica")]
 
@@ -35,17 +35,19 @@ combined = pd.concat(all_days_data)
 combined['To15min'] = combined['Time'].dt.round('15min').dt.time.apply(lambda t: datetime.datetime.combine(datetime.datetime(1970, 1, 1), t))
 combined = combined[["To15min", "Normalized"]]
 avg_data = combined.groupby("To15min").mean().reset_index()
+mask = avg_data['Normalized'] < 0
+avg_data.loc[mask, 'Normalized'] = 0
 #avg_data = combined.groupby("Time").mean().reset_index()
 #avg_data["Smoothed"] = avg_data["Normalized"].rolling(window=10, min_periods=1).mean()
 plt.plot(avg_data["To15min"], avg_data["Normalized"], color="black", linewidth=3, label="Povprečje")
-plt.ylim(-50, 105)
+plt.ylim(0, 105)
 tick_locs = pd.date_range(start=base_date, periods=25, freq="1H")
 tick_labels = tick_locs.strftime('%H:%M')
 plt.xticks(ticks=tick_locs, labels=tick_labels)
 plt.margins(0)
 plt.xlabel("Čas")
 plt.ylabel("% zasedenosti")
-plt.title('Dnevna primerjava zasedenosti parkirišča "PH Kongresni trg" (24h)')
+plt.title('Dnevna primerjava zasedenosti parkirišča "Gospodarsko razstavišče" (24h)')
 plt.legend(ncol=3, fontsize=8)
 plt.tight_layout()
 plt.show()
