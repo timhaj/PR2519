@@ -82,6 +82,8 @@ Stopnja zasedenosti  bi bila precej višja če bi upoštevali le časovni interv
 
 Našo seminarsko nalogo smo v Streamlit-u realizirali v tri glavne zavihke: Predstavitev, kjer predstavimo seminarsko nalogo; Analiza, kjer smo implementirali vse naše analize iz vmesne predstavitve ter jih naredili interaktivno vpogledujoče za naše predrage uporabnike; ter Napoved, kjer smo ustvarili napovedni model, ki glede na vnešene podatke uporabnikov, vrne na zaslon napovedano razpoložljivost izbranega parkirnega mesta, glede na vse dni v tednu ter tudi specifično na določen dan v tednu.
 
+[Aplikacijo si lahko v živo ogledate tukaj](https://pr2519.streamlit.app/)
+
 <img src="slike/primer6.png"/>
 
 <img src="slike/primer7.png"/>
