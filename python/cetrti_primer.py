@@ -4,6 +4,8 @@ import numpy as np
 
 days = ["pon", "tor", "sre", "čet", "pet", "sob", "ned"]
 df = pd.read_csv("../podatki/parking_data.csv")
+df2 = pd.read_csv("../podatki/parking_data2.csv")
+df = pd.concat([df, df2])
 df = df[(df["Prosto"] != "/") & (~df["Prosto"].isna())]
 df["Prosto"] = pd.to_numeric(df["Prosto"])
 df["Na voljo"] = pd.to_numeric(df["Na voljo"])

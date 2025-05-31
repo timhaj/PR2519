@@ -13,7 +13,7 @@ p["Datum"] = pd.to_datetime(p["Datum"])
 plt.figure(figsize=(15, 5))
 
 all_days_data = []
-for day in pd.date_range(start="2025-03-18", end="2025-04-15"):
+for day in pd.date_range(start="2025-03-18", end="2025-05-30"):
     day_data = p[(p["Datum"] >= day) & (p["Datum"] < day + pd.Timedelta(days=1))].copy()
 
     if str(day) in ["2025-03-29 00:00:00", "2025-04-05 00:00:00", "2025-04-07 00:00:00", "2025-04-08 00:00:00", "2025-04-09 00:00:00"]:

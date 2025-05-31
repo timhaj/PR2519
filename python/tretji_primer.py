@@ -41,10 +41,12 @@ cene = {
 }
 
 df = pd.read_csv("../podatki/parking_data.csv")
+df2 = pd.read_csv("../podatki/parking_data2.csv")
+df = pd.concat([df, df2])
 df = df[(df["Prosto"] != "/") & (~df["Prosto"].isna())]
 df["Prosto"] = pd.to_numeric(df["Prosto"])
 df["Na voljo"] = pd.to_numeric(df["Na voljo"])
-df["Zasedenost"] = (1 -(df["Prosto"]  / df["Na voljo"])) * 100
+df["Zasedenost"] = (1 -(df["Prosto"] / df["Na voljo"])) * 100
 mask = df['Zasedenost'] < 0
 df.loc[mask, 'Zasedenost'] = 0
 short = df[["Location", "Prosto", "Na voljo", "Zasedenost"]]
@@ -57,7 +59,7 @@ print(b)
 print(zasedenost)
 
 
-plt.scatter(a, b, s=5)
+plt.scatter(a, b, s=100)
 plt.ylabel("Cena parkirišča na uro [€/h]")
 plt.xlabel("Povprečna zasedenost parkirišča [%]")
 plt.show()
