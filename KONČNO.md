@@ -52,7 +52,7 @@ Poleg tega proti večeru vidimo marsikater primer, kjer se pojavi nenaden vzpon 
 
 #### Skupno število prostih parkirnih mest skozi čas
 Spodnji graf prikazuje skupno število prostih mest skozi vse dni beleženja. Modro ozadje označuje vikende.
-<img src="slike/primer3.png"/>
+<img src="slike/primer8.png"/>
 
 Opazimo, da je največ prostih parkirnih mest zgodaj zjutraj, medtem ko je okoli poldneva dosežena najvišja zasedenost.
 
@@ -62,7 +62,7 @@ Opazimo, da je največ prostih parkirnih mest zgodaj zjutraj, medtem ko je okoli
 
 Na grafu spodaj je na y-osi prikazana cena za 1 uro parkiranja, na x-osi pa povprečna zasedenost parkirišča (v odstotkih) skozi vse dni beleženja.
 
-<img src="slike/primer4.png"/>
+<img src="slike/primer3.png"/>
 
 Iz grafa lahko razberemo, da kljub nizki ceni parkiranja zasedenost na mnogih parkiriščih ni visoka.
 V spodnjem desnem delu grafa se pojavi nenavaden primer – eno parkirišče je ves čas prikazano kot polno. To skoraj zagotovo kaže na napako v podatkih (verjetno težava s senzorjem).
